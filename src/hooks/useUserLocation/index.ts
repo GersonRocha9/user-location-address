@@ -29,13 +29,13 @@ export const useUserLocation = () => {
     navigator.geolocation.watchPosition(handleSuccess, handleError);
   }
 
-  function handleSuccess(position: GeolocationPosition) {
+  function handleSuccess(position: any) {
     const { latitude, longitude } = position.coords;
     setLatitude(latitude);
     setLongitude(longitude);
   }
 
-  function handleError(error: GeolocationPositionError) {
+  function handleError(error: any) {
     console.error(error);
   }
 

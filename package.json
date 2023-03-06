@@ -4,7 +4,7 @@
   "description": "Module to return the user's location (full address) with just one click by the user, if he authorizes it. Written in TypeScript, documented, tested and maintained. Disclaimer: at least React 16 is needed (the one with hooks)",
   "author": "gersonrocha9",
   "license": "Apache-2.0",
-  "repository": "nekogd/react-hook-npm-publish-boilerplate",
+  "repository": "GersonRocha9/user-location-address",
   "main": "dist/index.js",
   "engines": {
     "node": ">=8",
