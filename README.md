@@ -2,7 +2,7 @@
 
 <div align='center'>
 
-[![GitHub](https://img.shields.io/github/license/user-location-address?style=plastic)](https://github.com/GersonRocha9/user-location-address 'View this project on GitHub')
+[![GitHub](https://img.shields.io/github/license/mkyy/mui-search-bar?style=plastic)](https://github.com/GersonRocha9/user-location-address 'View this project on GitHub')
 [![npm](https://img.shields.io/npm/v/user-location-address?style=plastic)](https://www.npmjs.com/package/user-location-address 'View this project on npm')
 
 </div>
