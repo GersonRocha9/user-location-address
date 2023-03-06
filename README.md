@@ -1,161 +1,58 @@
-# React Hooks to npm boilerplate
+# user-location-address
 
-This repository is a boilerplate for creating custom React hooks and components that we can publish to NPM registry as packages.
+<div align='center'>
 
-I've put together a quick tutorial, it assumes an understanding of React, hooks and unit tests.
+[![GitHub](https://img.shields.io/github/license/user-location-address?style=plastic)](https://github.com/GersonRocha9/user-location-address 'View this project on GitHub')
+[![npm](https://img.shields.io/npm/v/user-location-address?style=plastic)](https://www.npmjs.com/package/user-location-address 'View this project on npm')
 
-If something is not clear, message me or raise an issue, I will explain in more detail.
+</div>
 
-I've used this boilerplate to create my NPM package [https://www.npmjs.com/package/@nekogd/react-utility-hooks].
+## Installation
 
-## First things first
-
-Firstly, clone this repository. 
-
-Next, go over to package.json file and amend name, description and author keys.
-
-The package would be served on npm as per what you have typed in the "name".
-
-You may want to use scoped naming i.e. "@myscope/use-my-hook"
-
-More info: [https://docs.npmjs.com/using-npm/scope.html]
-
-## How we will be able to use your package
-
-It follows the common React path.
-
-Follow through the included useCounter example and you will be fine.
-
-Make sure to export your hook (I prefer named exports) in index.ts.
-
-Basically you have to do three things:
-
-a) write your hook (preferably test and type it)
-
-b) export it in index.ts file
-
-c) deploy to NPM
-
-We will able to use your hook like so:
-
-```
- import { useYourHook } from 'your-package-name'
+```shell
+npm i user-location-address
 ```
 
-## Development commands
+or
 
-```
- // watch
- yarn start
-
- // or
- npm run start
+```shell
+yarn add user-location-address
 ```
 
-```
- // builds the dist folder
- yarn build
+## Usage
 
- // or
- npm run build
-```
+This hook returns the `userLocation, latitude, longitude, isLoading, userClickToGetLocation`. This hook also includes the insertion of the user's city, state and country in Local Storage.
 
-```
- // starts tests
- yarn test
+```js
+import { useUserLocation } from "user-location-address";
 
- // or
+return (
 
- npm run test
-```
+  const { userClickToGetLocation, userLocation, isLoading } = useUserLocation();
 
-## Local testing and yarn link
-
-To locally test the package, do the following:
-
-Let's assume your package name is "use-my-counter" and your CRA is "my-app".
-
-Let's also assume they are in one workspace.
-
-```
-workspace
-  - use-my-counter
-  - my-app
+  // Passing data as properties to a button component.
+  <LocationButton
+    onClick={userClickToGetLocation}
+    userLocation={userLocation}
+    isLoading={isLoading}
+  />
+);
 ```
 
-a) in hook folder, run
-```
-yarn link
-```
-b) assuming you have a workspace, create a sample CRA app 
-```
-npx create-react-app my-app
-```
-c) navigate to your CRA app folder
-```
-cd my-app
-```
-d) run command
-```
- yarn link use-my-counter
-```
-e)  In your CRA app, you can now user package, as it's linked locally 
-```
-  import { useMyCounter } from 'use-my-counter';
-```
+### Hook return
 
-f) However, this will give you an error due to different copy of React and in CRA app. 
-   To counter that let's assume that we have workspace
-```
-workspace
-  - use-my-counter
-  - my-app
-```
-  We navigate to use-my-counter and type (this will link the React versions locally). 
-  
-  Please amend the path to your needs.
-  ```
-   npm link ../my-app/node_modules/react
-  ```
-  We should be good to go to work locally. 
+| Name                   | Type      | Description                   |
+| ---------------------- | --------- | ----------------------------- |
+| userLocation           | `object`  | User address return           |
+| latitude               | `number`  | User's latitude               |
+| longitude              | `number`  | User's longitude              |
+| isLoading              | `boolean` | Data loading process          |
+| userClickToGetLocation | `func`    | Executes the data return call |
 
-## Deployment to NPM
+## License
 
-### Login to correct NPM account
+The files included in this repository are licensed under the MIT license.
 
-```
-npm login
-```
+## Contributions
 
-### Versioning
-
-Increase the version number as per NPM guides [https://docs.npmjs.com/about-semantic-versioning].
-
-```
-// increases the first digit i.e. from 0.5.4 to 1.0.0
-npm version major
-
-// increases the second digit i.e. from 0.0.3 to 0.1.0
-npm version minor
-
-// increases the third digit i.e. from 0.0.1 to 0.0.2
-npm version patch
-```
-
-### Deployment
-
-Run the command and the package should be up.
-
-```
-npm publish --access public
-```
-
-### What If I want to export a component? 
-
-You can do that too, following same pattern as you'd with hooks.
-
-Bear in mind you'd propably need .tsx file and not .ts.
-
-### Share with the world
-
-Share your work and learnings with the world! :)
+Feel free to open an issue or add a pull request. Anytime. Really, I mean it.
